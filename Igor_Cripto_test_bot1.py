@@ -3,7 +3,7 @@ from extensions import APIException, Convertor
 from config import TOKEN, exchanges
 import traceback
 
-exchanges = {
+keys = {
     'доллар': 'USD',
     'евро': 'EUR',
     'рубль': 'RUB'
@@ -22,7 +22,7 @@ def start(message: telebot.types.Message):
 @bot.message_handler(commands=['values'])
 def values(message: telebot.types.Message):
     text = 'Валюты, доступные для конвертирования:'
-    for i in exchanges.keys():
+    for i in keys.keys():
         text = '\n'.join((text, i))
     bot.reply_to(message, text)
 
